@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Quick Profile Clear
-// @version      1.0.0
+// @version      1.0.1
 // @description  Quickly clear all user fields to a pre-set set of fields
 // @author       lyxal (https://github.com/lyxal) (https://stackexchange.com/users/12951433/lyxal?tab=accounts)
 // @match       *://*.stackexchange.com/users/*
@@ -26,12 +26,13 @@
     ` // Feel free to change
 
 
-    function clearUser(message) {
+    function clearUser() {
       document.getElementById("displayName").value = "Profile Spam Account";
       document.getElementById("location").value = "Spam";
       document.getElementById("WebsiteUrl").value = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
       document.getElementById("TwitterUrl").value = "";
       document.getElementById("GitHubUrl").value = "";
+      document.getElementById("wmd-input").innerHTML = bioText
       localStorage.setItem("spammer" + document.location.host + userID);
       submitButton.click();
     }
