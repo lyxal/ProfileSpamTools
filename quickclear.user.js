@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Quick Profile Clear
-// @version      1.0.1
+// @version      1.0.2
 // @description  Quickly clear all user fields to a pre-set set of fields
 // @author       lyxal (https://github.com/lyxal) (https://stackexchange.com/users/12951433/lyxal?tab=accounts)
 // @match       *://*.stackexchange.com/users/*
@@ -33,7 +33,7 @@
       document.getElementById("TwitterUrl").value = "";
       document.getElementById("GitHubUrl").value = "";
       document.getElementById("wmd-input").innerHTML = bioText
-      localStorage.setItem("spammer" + document.location.host + userID);
+      localStorage.setItem("spammer" + document.location.host + userID, "true");
       submitButton.click();
     }
 
