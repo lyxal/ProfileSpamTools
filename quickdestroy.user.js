@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Quick Destroy
-// @version      1.0.0
+// @version      1.0.1
 // @description  Destroy a user that has been cleared using the Clear User Fields userscript
 // @author       lyxal (https://github.com/lyxal) (https://stackexchange.com/users/12951433/lyxal?tab=accounts)
 // @match       *://*.stackexchange.com/users/*
@@ -20,6 +20,16 @@
 // ==/UserScript==
 (function () {
     'use strict';
+    var userIDRegex = /\/users\/(\d+)\//g.exec(document.location);
+    if (userIDRegex == null) {
+        return; // e.g. flag summary page
+    }
+    var userID = userIDRegex[1];
+    var userName = $(".fs-headline2").text().trim();
+    var moderatorLinkElement = $('a[data-se-mod-button-id=' + userID + ']');
+    if (moderatorLinkElement.length == 0) { // Current user is not a moderator, or wrong tab - no action possible
+        return;
+    }
     if (localStorage.getItem("spammer" + document.location.host + userID)) {
         var destroyLink = document.createElement('a');
         destroyLink.setAttribute('class', 'grid--cell');
