@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Quick Profile Clear
-// @version      1.0.2
+// @version      1.0.3
 // @description  Quickly clear all user fields to a pre-set set of fields
 // @author       lyxal (https://github.com/lyxal) (https://stackexchange.com/users/12951433/lyxal?tab=accounts)
 // @match       *://*.stackexchange.com/users/*
