@@ -27,7 +27,11 @@
 
 
     function clearUser() {
-      document.getElementById("displayName").value = "Profile Spam Account";
+
+      const networkButton = document.querySelector(".d-flex.ai-center.ws-nowrap.s-btn.s-btn__outlined.s-btn__muted.s-btn__icon.s-btn__sm.d-flex.ai-center");
+      const networkID = networkButton.href;
+      const ID = networkID.match(/https:\/\/stackexchange\.com\/users\/(\d+)/)[1];
+      document.getElementById("displayName").value = `Profile Spam Account ${ID}`;
       document.getElementById("location").value = "Spam";
       document.getElementById("WebsiteUrl").value = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
       document.getElementById("TwitterUrl").value = "";
